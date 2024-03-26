@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 const ProductImages = ({ images = [[]] }) => {
-  const [main, setMain] = useState(images[1]);
+  const [main, setMain] = useState(images[0]);
   return (
     <Wrapper>
-      <img src={main.url} alt="" className="main " />
+      <img src={main.url} alt="main image" className="main " />
       <div className="gallery">
         {images.map((image, index) => {
           return (
             <img
               src={image.url}
-              alt=""
+              alt={image.filename}
               key={index}
               className={`${image.url === main.url ? "active" : null}`}
               onClick={() => setMain(images[index])}
